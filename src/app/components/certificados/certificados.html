@@ -1,0 +1,12 @@
+<section class="content-section">
+  <h3>Meus Certificados de Desenvolvimento</h3>
+  <p *ngIf="listaCertificados.length === 0" style="color: var(--text-support);">Carregando certificados...</p>
+  
+  <div class="projects-grid" *ngIf="listaCertificados.length > 0">
+    <div class="project-card" *ngFor="let cert of listaCertificados">
+      <h4>{{ cert.nome }}</h4>
+      <p><strong>Emissor:</strong> {{ cert.emissor }} ({{ cert.ano }})</p>
+      <a [href]="cert.url" target="_blank" class="repo-link" style="margin-top: 1rem; display: block;">Visualizar Diploma →</a>
+    </div>
+  </div>
+</section>

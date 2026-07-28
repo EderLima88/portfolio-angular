@@ -1,0 +1,9 @@
+<section class="content-section" *ngIf="dados">
+  <h3>📞 Informações de Contato Direct</h3>
+  <div class="project-card contact-card">
+    <p>🎯 <strong>LinkedIn: </strong> <a [href]="dados.linkLinkedin" target="_blank">{{ dados.linkLinkedin }}</a></p>
+    <p>💻 <strong>GitHub: </strong> <a [href]="dados.linkGithub" target="_blank">{{ dados.linkGithub }}</a></p>
+    <p>✉️ <strong>E-mail Direto: </strong> <a [href]="'mailto:' + dados.email">{{ dados.email }}</a></p>
+    <p>📱 <strong>Telefone / WhatsApp: </strong> {{ dados.telefone }}</p>
+  </div>
+</section>

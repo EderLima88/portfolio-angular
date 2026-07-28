@@ -1,0 +1,15 @@
+<section class="content-section">
+  <h3>Projetos em Destaque (Vindos do JSON Local)</h3>
+  <p *ngIf="listaProjetos.length === 0" style="color: var(--text-support);">Carregando projetos...</p>
+  
+  <div class="projects-grid" *ngIf="listaProjetos.length > 0">
+    <div class="project-card" *ngFor="let projeto of listaProjetos">
+      <h4>{{ projeto.titulo }}</h4>
+      <p>{{ projeto.descricao }}</p>
+      <div class="badges-container">
+        <span class="tech-badge" *ngFor="let tag of projeto.tags">{{ tag }}</span>
+      </div>
+      <a [href]="projeto.linkGithub" target="_blank" class="repo-link">Ver Código no GitHub →</a>
+    </div>
+  </div>
+</section>

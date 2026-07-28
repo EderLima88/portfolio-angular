@@ -1,0 +1,39 @@
+.content-section {
+  max-width: 1000px;
+  margin: 2rem auto 0 auto;
+}
+.content-section h3 {
+  font-size: 1.8rem;
+  border-bottom: 2px solid rgba(22, 27, 38, 0.8);
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.project-card {
+  background-color: rgba(22, 27, 38, 0.8);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #29292e;
+  display: flex;
+  flex-direction: column;
+}
+.project-card h4 { margin-top: 0; color: #fff; font-size: 1.3rem; }
+.project-card p { color: #a3aed0; font-size: 0.95rem; line-height: 1.5; flex-grow: 1; }
+.badges-container { margin-bottom: 1.5rem; margin-top: 1rem; }
+.tech-badge {
+  display: inline-block;
+  background-color: #323238;
+  color: #f15577;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  margin-top: 10px;
+}
+.repo-link { color: #f15577; text-decoration: none; font-weight: bold; }
+.repo-link:hover { text-decoration: underline; }
