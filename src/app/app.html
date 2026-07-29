@@ -1,4 +1,10 @@
-<div class="portfolio" *ngIf="perfilService.dadosPerfil() as dados">
+<!-- Se a API estiver acordando no Render, mostra spinner -->
+<div class="loading-overlay" *ngIf="perfilService.carregando()">
+  <div class="spinner"></div>
+  <p>Conectando ao servidor em nuvem... Por favor, aguarde alguns segundos.</p>
+</div>
+
+<div class="portfolio" *ngIf="!perfilService.carregando() && perfilService.dadosPerfil() as dados">
   
   <header class="hero">
     <h1>{{ dados.nome }}</h1>

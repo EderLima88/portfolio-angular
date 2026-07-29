@@ -25,18 +25,29 @@ export class PerfilService {
   private http = inject(HttpClient);
   //private apiUrl = '/dados-portfolio.json';
   private apiUrl = 'https://portfolioapi-eder.onrender.com/api/portfolio';
+
+// Signal que controla se a API está buscando os dados ou não
+  carregando = signal<boolean>(true);
+
   dadosPerfil = signal<Perfil | null>(null);
   projetos = signal<Projeto[]>([]);
   certificados = signal<Certificado[]>([]);
 
   carregarTudo() {
+    this.carregando.set(true);
+
     this.http.get<any>(this.apiUrl).subscribe({
       next: (resposta) => {
         this.dadosPerfil.set(resposta);
         this.projetos.set(resposta.projetos);
         this.certificados.set(resposta.certificados);
+        //delisga o spinner de carregamento 
+        this.carregando.set(false); 
       },
-      error: (err) => console.error('Erro ao ler o arquivo dados-portifolio.json:', err)
+      error: (err) => {
+      console.error('Erro ao carregar o arquivo dados-portifolio.json:', err);
+      this.carregando.set(false);
+    }
     });
   }
 }

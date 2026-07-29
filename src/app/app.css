@@ -1,3 +1,43 @@
+/* ==========================================================================
+   TELA DE ESPERA E CARREGAMENTO (SPINNER) DO ECOSSISTEMA DO ÉDER
+   ========================================================================== */
+
+/* Centraliza o carregamento no meio exato da tela do visitante */
+.loading-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh; /* Ocupa a maior parte da altura visível */
+  font-family: sans-serif;
+  color: #555;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Desenha o círculo com efeito de borda e cor azul reativa */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #e0e0e0;      /* Cor cinza de fundo do anel */
+  border-top: 5px solid #3498db;  /* Cor azul principal que vai girar */
+  border-radius: 50%;             /* Transforma o quadrado em círculo */
+  animation: spin 1s linear infinite; /* Roda em loop infinito a cada 1 segundo */
+  margin-bottom: 20px;
+}
+
+/* Regra matemática de animação que faz o elemento girar 360 graus */
+@keyframes spin {
+  0% { 
+    transform: rotate(0deg); 
+  }
+  100% { 
+    transform: rotate(360deg); 
+  }
+}
+
+
 :host {
   --bg-color: #0b0e14;       
   --card-bg: rgba(22, 27, 38, 0.8); 
