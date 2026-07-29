@@ -42,7 +42,7 @@ export class PerfilService {
         this.projetos.set(resposta.projetos);
         this.certificados.set(resposta.certificados);
         //delisga o spinner de carregamento 
-        //this.carregando.set(false); 
+        this.carregando.set(false); 
       },
       error: (err) => {
       console.error('Erro ao carregar o arquivo dados-portifolio.json:', err);
