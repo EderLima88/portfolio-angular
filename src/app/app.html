@@ -1,7 +1,7 @@
 <!-- Se a API estiver acordando no Render, mostra spinner -->
 <div class="loading-overlay" *ngIf="perfilService.carregando()">
   <div class="spinner"></div>
-  <p>Conectando ao servidor em nuvem... Por favor, aguarde alguns segundos.</p>
+  <p>Conectando ao servidor em nuvem gratuito... Por favor, aguarde 1 minuto.</p>
 </div>
 
 <div class="portfolio" *ngIf="!perfilService.carregando() && perfilService.dadosPerfil() as dados">
@@ -15,7 +15,7 @@
       
         <div class="hero-texto">
           <p class="formacao">🎓 <strong>Formação:</strong> {{ dados.formacao }}</p>
-          <p class="resumo" [innerHTML]="formatarResumo(dados.resumo)"></p>
+          <p class="resumo">{{ dados.resumo }}</p>
 
           <ul class="lista-caracteristicas">
           <li>Disciplina</li>

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PerfilService } from './core/services/perfil.service';
 
@@ -24,25 +24,4 @@ export class AppComponent implements OnInit {
   mudarAba(aba: 'projetos' | 'certificados' | 'contato') {
     this.abaAtiva = aba;
   }
-
-  formatarResumo(textoOriginal: string): string {
-    if (!textoOriginal) return '';
-
-    //Em negrito são estas
-        const palavrasChave = [
-      'Sistemas de Informação', 'Shell Scripting', 'APIs RESTful', 
-      'Spring Boot', 'Clean Code', 'Angular', 'DevOps', 
-      'Docker', 'MySQL', 'React', 'Java', 'REST'
-    ];
-
-    let textoFormatado = textoOriginal;
-
-    palavrasChave.forEach(palavra => {
-      const expressao = new RegExp(`(${palavra})`, 'gi');
-      textoFormatado = textoFormatado.replace(expressao, '<strong>$1</strong>');
-    });
-
-    return textoFormatado;
-  }
-
 }

@@ -1,5 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { delay } from 'rxjs/operators';
 
 export interface Perfil {
   nome: string; cargo: string; formacao: string; resumo: string;
@@ -29,18 +30,20 @@ export class PerfilService {
 // Signal que controla se a API está buscando os dados ou não
   carregando = signal<boolean>(true);
 
-  dadosPerfil = signal<Perfil | null>(null);
+  //dadosPerfil = signal<Perfil | null>(null);
+  dadosPerfil = signal<any>(null);
   projetos = signal<Projeto[]>([]);
   certificados = signal<Certificado[]>([]);
 
   carregarTudo() {
     this.carregando.set(true);
 
-    this.http.get<any>(this.apiUrl).subscribe({
+    this.http.get<any>(this.apiUrl).pipe(delay(1000)).subscribe({
       next: (resposta) => {
         this.dadosPerfil.set(resposta);
         this.projetos.set(resposta.projetos);
         this.certificados.set(resposta.certificados);
+         
         //delisga o spinner de carregamento 
         this.carregando.set(false); 
       },
@@ -51,3 +54,4 @@ export class PerfilService {
     });
   }
 }
+
