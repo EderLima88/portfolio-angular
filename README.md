@@ -1,59 +1,41 @@
-# PortifolioAngular
+![Logo do Angular](public/favicon.ico)![Logo do Angular](/public/html.ico)![Logo do Angular](/public/css.ico)![Logo do Angular](/public/ty.ico)
+# Portfólio Acadêmico & Profissional - Front-End (Angular) 
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.19.
+Este repositório armazena o ecossistema visual e interativo do meu portfólio de engenharia de software. A aplicação consome dados dinamicamente de uma API RESTful em Java e renderiza uma interface reativa, responsiva e performática de alto nível.
 
-## Development server
+## Link do Projeto Online
+Acesse o sistema em produção: 
+**https://github.com/EderLima88/portfolio-angular.git**
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 🛠️ Arquitetura Visual e Tecnologias
+*   **Angular 17+ Moderno**
+*   **HTML5 & CSS3 Puro** 
+*   **Gerenciamento de Estados com Signals:** atualizações de tela extremamente velozes.
+*   **RxJS & Programação Assíncrona:** Gerenciamento dos fluxos (pipes).
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Soluções de Engenharia Aplicadas
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+###  1. UX Cold Start
+Como a API RESTful está hospedada no plano gratuito do Render.com, o contêiner Docker entra em hibernação após 15 minutos de inatividade e precisa-se esperar para ver seu conteudo renderizar.
+*   **Solução:** Injetei um **Spinner de Carregamento azul** em HTML/CSS reativo no `app.html` preso ao sinal `carregando()`. O usuario vê uma animação até a api esta disponível.
 
-```bash
-ng generate component component-name
-```
+###  2. Proteção do Ciclo de Vida da Renderização (Resumo Invisível)
+* Com este atrazo implementei o operador reativo **`pipe(delay(2000))`** do RxJS diretamente no cano de chegada do HTTP no `perfil.service.ts`. 
+Isto garante 2s para o conteúdo da api chegar todos e depois renderizar. 
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Esteira de Integração e Entrega Contínua (CI/CD)
+O projeto utiliza **GitHub Actions** configurado no arquivo `.github/workflows/deploy.yml` para automatizar as compilações diretamente no GitHub Pages sempre que uma atualização é empurrada para a ramificação oficial.
 
-```bash
-ng generate --help
-```
+### Fluxo Definitivo de Atualização (Terminal do Fedora):
+Sempre que uma alteração visual é feita na IDE, basta rodar a sequência de comandos sincronizada na branch **`master`**:
 
-## Building
+*O robô captura o sinal de push automaticamente no servidor e atualiza o site na internet em menos de 2 minutos.*
 
-To build the project run:
+![Logo do Angular](public/pagina.png)
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Desenvolvido por **Éder de Lima** 🎓 *Graduado em Análise e Desenvolvimento de Sistemas e Engenharia de Software*. *Pós-graduado em Desenvolvimento de Sistema com Java e Ciência de Dados.*
