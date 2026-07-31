@@ -205,5 +205,43 @@
   }
 }
 
+/* Camada cinza que centraliza o Spinner e o texto perfeitamente na tela */
+.loading-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* O Círculo Azul: Borda cinza clara com o topo azul girando infinitamente */
+.spinner {
+  width: 55px;
+  height: 55px;
+  border: 5px solid #e2e8f0;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 25px;
+}
+
+/* Estilização do texto de aviso transparente para o Recrutador */
+.loading-text {
+  color: #4a5568;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 550px;
+  margin: 0;
+}
+
+/* A Engrenagem de Animação: Faz o componente rodar de 0 a 360 graus */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 
