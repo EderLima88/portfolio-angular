@@ -43,12 +43,10 @@ this.carregando.set(true);
         this.projetos.set(resposta.projetos);
         this.certificados.set(resposta.certificados);
 
-// Dá 500ms de folga exclusiva para o navegador renderizar as letras do resumo no DOM
-      setTimeout(() => {
-        this.carregando.set(false); // Só agora o Spinner sai da tela com segurança!
-      }, 500);
+      // Spinner desliga na mesma hora, sem travar o navegador!
+        this.carregando.set(false); 
 
-      },
+     },
       error: (err) => console.error('Erro ao ler o arquivo dados-portifolio.json:', err)
     });
   }
