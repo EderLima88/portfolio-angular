@@ -36,14 +36,17 @@ export class PerfilService {
   carregarTudo() {
 this.carregando.set(true);
 
-    this.http.get<any>(this.apiUrl).pipe(delay(4000)).subscribe({
+    this.http.get<any>(this.apiUrl).pipe(delay(2000)
+  ).subscribe({
       next: (resposta) => {
         this.dadosPerfil.set(resposta);
         this.projetos.set(resposta.projetos);
         this.certificados.set(resposta.certificados);
 
-// Só desliga o Spinner após o término dos 4 segundos de atraso
-        this.carregando.set(false);
+// Dá 500ms de folga exclusiva para o navegador renderizar as letras do resumo no DOM
+      setTimeout(() => {
+        this.carregando.set(false); // Só agora o Spinner sai da tela com segurança!
+      }, 500);
 
       },
       error: (err) => console.error('Erro ao ler o arquivo dados-portifolio.json:', err)
