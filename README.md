@@ -4,8 +4,10 @@
 Este repositório armazena o ecossistema visual e interativo do meu portfólio de engenharia de software. A aplicação consome dados dinamicamente de uma API RESTful em Java e renderiza uma interface reativa, responsiva e performática de alto nível.
 
 ## Link do Projeto Online
-Acesse o sistema em produção: 
+* Acesse ao sistema frontend : 
 **https://github.com/EderLima88/portfolio-angular.git**
+* Acesso repositótio backend java
+**https://github.com/EderLima88/portfolioapi-backend.git**
 
 ---
 
