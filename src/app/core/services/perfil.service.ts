@@ -36,13 +36,13 @@ export class PerfilService {
   carregarTudo() {
 this.carregando.set(true);
 
-    this.http.get<any>(this.apiUrl).pipe(delay(2000)).subscribe({
+    this.http.get<any>(this.apiUrl).pipe(delay(4000)).subscribe({
       next: (resposta) => {
         this.dadosPerfil.set(resposta);
         this.projetos.set(resposta.projetos);
         this.certificados.set(resposta.certificados);
 
-// Só desliga o Spinner após o término dos 2 segundos de atraso
+// Só desliga o Spinner após o término dos 4 segundos de atraso
         this.carregando.set(false);
 
       },
