@@ -4,6 +4,15 @@
     <p>🎯 <strong>LinkedIn: </strong> <a [href]="dados.linkLinkedin" target="_blank">{{ dados.linkLinkedin }}</a></p>
     <p>💻 <strong>GitHub: </strong> <a [href]="dados.linkGithub" target="_blank">{{ dados.linkGithub }}</a></p>
     <p>✉️ <strong>E-mail Direto: </strong> <a [href]="'mailto:' + dados.email">{{ dados.email }}</a></p>
-    <p>📱 <strong>Telefone / WhatsApp: </strong> {{ dados.telefone }}</p>
+    
+      <div class="contato-item"> 
+        <p>
+         💬<strong> Telefone e whatsapp:</strong>
+            <a [href]="dados.telefone" target="_blank" rel="noopener noreferrer" class="link-whatsapp">
+              (51) 98404-9178
+            </a>
+        </p>
+      </div>
+
   </div>
 </section>

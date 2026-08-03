@@ -28,3 +28,9 @@
   display: flex;
   flex-direction: column;
 }
+
+.contato-item { 
+  font-size: 1.1rem; 
+  margin-bottom: 1.2rem; 
+  color: #f3f4f6; 
+}
