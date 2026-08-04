@@ -1,6 +1,5 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 import { delay, retry, timer } from 'rxjs';
 
 export interface Perfil {
@@ -34,27 +33,25 @@ export class PerfilService {
   certificados = signal<Certificado[]>([]);
 
   carregarTudo() {
-this.carregando.set(true);
+    this.carregando.set(true);
 
     this.http.get<any>(this.apiUrl).pipe(delay(2000),
-    delay(2000),// Mantém a nossa margem de segurança de 2s para renderizar o DOM
+    delay(2000),//2s para renderizar o DOM
       
-      // 🛡️ ESCUDO ANTI-TIMEOUT DO CELULAR:
-      // Se a rede cair ou demorar, ele tenta de novo AUTOMATICAMENTE mais 2 vezes,
-      // esperando 3 segundos entre cada tentativa para dar tempo do Render acordar.
+      //Do CELULAR: ele derruma a conexão demorada para a economia de energia
+      //Tenta mais 2 vezes, esperando 3 segundos Render API acordar.
       retry({
         count: 2,
         delay: () => timer(3000)
       })
-  ).subscribe({
-      next: (resposta) => {
-        this.dadosPerfil.set(resposta);
-        this.projetos.set(resposta.projetos);
-        this.certificados.set(resposta.certificados);
+      ).subscribe({
+        next: (resposta) => {
+          this.dadosPerfil.set(resposta);
+          this.projetos.set(resposta.projetos);
+          this.certificados.set(resposta.certificados);
 
-      // Spinner desliga na mesma hora, sem travar o navegador!
-        this.carregando.set(false); 
-
+          // Spinner desliga
+          this.carregando.set(false); 
      },
       error: (err) => console.error('Erro ao ler o arquivo dados-portifolio.json:', err)
     });

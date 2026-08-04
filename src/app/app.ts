@@ -28,7 +28,6 @@ export class AppComponent implements OnInit {
   formatarResumo(textoOriginal: string): string {
     if (!textoOriginal) return '';
 
-    //Em negrito são estas
         const palavrasChave = [
       'Sistemas de Informação', 'Shell Scripting', 'APIs RESTful', 
       'Spring Boot', 'Clean Code', 'Angular', 'DevOps', 

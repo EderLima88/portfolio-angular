@@ -9,12 +9,12 @@
 .portfolio {
   background: linear-gradient(
     135deg, 
-    #b91c1c 0%,    /* Vermelho começa espremido na ponta superior esquerda */
-    #7f1d1d 15%,    /* Fim do vermelho do topo */
-    #000000 25%,   /* O preto total entra logo em seguida, limpando a tela */
-    #000000 60%,   /* O preto domina quase a tela inteira (resumo, foto e botões) */
-    #b91c1c 85%,   /* O vermelho reaparece no canto inferior direito */
-    #7f1d1d 100%   /* Fim do vermelho na base */
+    #b91c1c 0%, 
+    #7f1d1d 15%,
+    #000000 25%,
+    #000000 60%,
+    #b91c1c 85%,
+    #7f1d1d 100%
   );
   color: var(--text-main);
   font-family: 'Segoe UI', Arial, sans-serif;
@@ -150,15 +150,14 @@
     background: linear-gradient(
       135deg, 
       #b91c1c 0%,    
-      #7f1d1d 15%,    /* Vermelho do topo fica curtíssimo no celular, abrindo espaço para o preto */
-      #000000 25%,    /* Preto entra imediatamente para dar contraste ao nome e cargo */
+      #7f1d1d 15%,
+      #000000 25%,
       #000000 85%,      
       #b91c1c 95%,      
       #7f1d1d 100%
     ) !important;
   }
 
-  /* Aplica um contorno preto invisível nas letras brancas para dar nitidez perfeita */
   .hero h1 {
     color: #ffffff !important;
     text-shadow: 0 2px 8px #000000, 0 1px 3px #000000 !important;
@@ -189,7 +188,6 @@
     display: none !important; 
   }
 
-  /*botões cortados em pilha vertical*/
   .nav-menu {
     flex-direction: column;
     width: 100%;
@@ -205,7 +203,6 @@
   }
 }
 
-/* Camada cinza que centraliza o Spinner e o texto perfeitamente na tela */
 .loading-overlay {
   display: flex;
   flex-direction: column;
@@ -218,7 +215,6 @@
   box-sizing: border-box;
 }
 
-/* O Círculo Azul: Borda cinza clara com o topo azul girando infinitamente */
 .spinner {
   width: 55px;
   height: 55px;
@@ -229,7 +225,6 @@
   margin-bottom: 25px;
 }
 
-/* Estilização do texto de aviso transparente para o Recrutador */
 .loading-text {
   color: #4a5568;
   font-size: 1.1rem;
@@ -238,7 +233,6 @@
   margin: 0;
 }
 
-/* A Engrenagem de Animação: Faz o componente rodar de 0 a 360 graus */
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
