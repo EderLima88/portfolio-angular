@@ -1,7 +1,7 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { delay } from 'rxjs/operators';
+import { delay, retry, timer } from 'rxjs';
 
 export interface Perfil {
   nome: string; cargo: string; formacao: string; resumo: string;
@@ -36,7 +36,16 @@ export class PerfilService {
   carregarTudo() {
 this.carregando.set(true);
 
-    this.http.get<any>(this.apiUrl).pipe(delay(2000)
+    this.http.get<any>(this.apiUrl).pipe(delay(2000),
+    delay(2000),// Mantém a nossa margem de segurança de 2s para renderizar o DOM
+      
+      // 🛡️ ESCUDO ANTI-TIMEOUT DO CELULAR:
+      // Se a rede cair ou demorar, ele tenta de novo AUTOMATICAMENTE mais 2 vezes,
+      // esperando 3 segundos entre cada tentativa para dar tempo do Render acordar.
+      retry({
+        count: 2,
+        delay: () => timer(3000)
+      })
   ).subscribe({
       next: (resposta) => {
         this.dadosPerfil.set(resposta);
