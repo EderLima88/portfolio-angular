@@ -1,6 +1,6 @@
-import { inject, ChangeDetectorRef, Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { delay, retry, timer, timeout } from 'rxjs';
+import { delay, retry, timer, timeout, catchError } from 'rxjs';
 
 export interface Perfil {
   nome: string; cargo: string; formacao: string; resumo: string;
@@ -24,9 +24,9 @@ interface RespostaPortfolio {
 @Injectable({ providedIn: 'root' })
 export class PerfilService {
   private http = inject(HttpClient);
-  private cdr = inject(ChangeDetectorRef);
-  //private apiUrl = '/dados-portfolio.json';
+    //private apiUrl = '/dados-portfolio.json';
   private apiUrl = 'https://portfolioapi-eder.onrender.com/api/portfolio';
+  private apiBackupUrl = './dados-portfolio.json'; 
 
   carregando = signal<boolean>(true);
   dadosPerfil = signal<any>(null);
@@ -39,12 +39,18 @@ export class PerfilService {
 
     this.http.get<any>(this.apiUrl).pipe(
       timeout(8000),
-      
       //Do CELULAR: ele derruma a conexão demorada para a economia de energia
       //Tenta mais 2 vezes, esperando 3 segundos Render API acordar.
       retry({
         count: 5,
-        delay: () => timer(4000)
+      delay: () => timer(4000)
+      }),
+
+  // ESTRATÉGIA DE FALLBACK: Se o Render falhar definitivamente (limite atingido),
+      // o catchError captura o erro e busca o JSON local automaticamente.
+      catchError((erro) => {
+        console.warn('Conexão com Render falhou ou atingiu limite. Carregando backup local...', erro);
+        return this.http.get<any>(this.apiBackupUrl);
       }),
 
       delay(2000)//2s para renderizar o DOM
@@ -57,8 +63,8 @@ export class PerfilService {
 
           // Spinner desliga
           this.carregando.set(false); 
-          // Força o navegador a redesenhar a tela
-          this.cdr.detectChanges();
+        
+        
      },
       error: (err) => {
       console.error('Erro ao ler o arquivo dados-portifolio.json:', err);

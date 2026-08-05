@@ -1,103 +1,123 @@
 {
-  "perfil": {
-    "nome": "Eder de Lima",
-    "cargo": "Desenvolvedor Full Stack Júnior | Java | Spring Boot | APIs REST | Angular | React | Docker | Linux & Shell Scripting",
-    "formacao": "Graduação em Tecnologia",
-    "resumo": "No desenvolvimento backend, possuo base na criação de APIs RESTful, padronizadas e escaláveis utilizando Java, Spring Boot e persistência de dados em MySQL. No frontend, possuo flexibilidade desenvolvimento em interfaces dinâmicas tanto com Angular quanto com React consumindo serviços REST. Possuo facilidade em ambientes Linux, atuando com automação em Shell Scripting e containerização de aplicações utilizando Docker. Busco minha primeira oportunidade para aplicar boas práticas de desenvolvimento (Clean Code), arquitetura de software e cultura DevOps.",
+    "linkLinkedin": "https://www.linkedin.com/in/%C3%A9der-de-lima-64b70626a/",
     "linkGithub": "https://github.com/EderLima88",
-    "linkLinkedin": "https://www.linkedin.com/in/éder-de-lima-64b70626a",
+    "telefone": "https://wa.me/5551984049178",
+    "formacao": "Graduação em Tecnologia",
+    "projetos": [
+        {
+            "descricao": "Aplicação desktop desenvolvida em Java com interface gráfica, permitindo a manipulação de dados em um banco de dados SQLite.",
+            "id": 1,
+            "linkGithub": "https://github.com/EderLima88/JavaCrudSqlite",
+            "tags": [
+                "Java",
+                "Swing",
+                "MySQL"
+            ],
+            "titulo": "Projeto CRUD em Java para aplicação Desktop"
+        },
+        {
+            "descricao": "Projeto de infra como código (IaC) para configuração de serviços e gerenciamento de usuários.",
+            "id": 2,
+            "linkGithub": "https://github.com/EderLima88/linux-proj1-infra",
+            "tags": [
+                "Linux",
+                "Shell Scripting",
+                "Automação"
+            ],
+            "titulo": "Infraestrutura como Código (IaC) - Linux"
+        },
+        {
+            "descricao": "API completa para gerenciamento de produtos, carrinho de compras e pedidos dos usuários.",
+            "id": 3,
+            "linkGithub": "https://github.com/EderLima88/react-docker-yarn-typescript-2",
+            "tags": [
+                "Docker",
+                "TypeScript",
+                "React"
+            ],
+            "titulo": "API RESTful - Sistema de E-commerce"
+        },
+        {
+            "descricao": "Aplicação desenvolvida com Spring Boot com padrão MVC",
+            "id": 4,
+            "linkGithub": "https://github.com/EderLima88/spring-rest-api-h2",
+            "tags": [
+                "Java",
+                "Spring Boot",
+                "MVC",
+                "H2 Database"
+            ],
+            "titulo": "Aplicação Spring Boot com H2 Database"
+        },
+        {
+            "descricao": "Manipuação de dados de pessoas com HTML, CSS e JavaScript puros, utilizando LocalStorage MYSQL.",
+            "id": 5,
+            "linkGithub": "https://github.com/EderLima88/CRUDTargetTrust",
+            "tags": [
+                "HTML",
+                "Bootstrap",
+                "PHP",
+                "MySQL"
+            ],
+            "titulo": "Aplicação gestão de pessoas com HTML, CSS e JavaScript puros"
+        },
+        {
+            "descricao": "Blog desenvolvido em Angular, hospedado no GitHub Pages, abordando informações e curiosidades sobre a franquia de jogos Silent Hill.",
+            "id": 6,
+            "linkGithub": "https://github.com/EderLima88/angular-blog-jogos",
+            "tags": [
+                "Angular",
+                "GitHub Pages",
+                "Modular",
+                "Routing"
+            ],
+            "titulo": "Blog em Angula no git pages sobre Silent Hill"
+        }
+    ],
+    "nome": "Eder de Lima",
+    "resumo": "No desenvolvimento backend, possuo base na criação de APIs RESTful, padronizadas e escaláveis utilizando Java, Spring Boot e persistência de dados em MySQL. No frontend, possuo flexibilidade desenvolvimento em interfaces dinâmicas tanto com Angular quanto com React consumindo serviços REST. Possuo facilidade em ambientes Linux, atuando com automação em Shell Scripting e containerização de aplicações utilizando Docker. Busco minha primeira oportunidade para aplicar boas práticas de desenvolvimento (Clean Code), arquitetura de software e cultura DevOps.",
+    "certificados": [
+        {
+            "ano": "2020",
+            "emissor": "Uniasselvi",
+            "id": 1,
+            "nome": "Analise e Desenvolvimento de Software",
+            "url": "https://drive.google.com/file/d/1OFpS1AfGCbUv-pxGv-ciQJ1VxUeOC791/view?usp=drive_link"
+        },
+        {
+            "ano": "2025",
+            "emissor": "Uniasselvi",
+            "id": 2,
+            "nome": "Engenharia de Software",
+            "url": "https://drive.google.com/file/d/1xIHT-ErZVpSb0oRyTTzQEQz5QyzwZvN3/view?usp=drive_link"
+        },
+        {
+            "ano": "2024",
+            "emissor": "Uniasselvi",
+            "id": 3,
+            "nome": "Desenvolvimento de Sistemas com JAVA",
+            "url": "https://drive.google.com/file/d/1lUr4IbfAqTxxu25YeIaybAiR3Q6-vuF8/view?usp=drive_link"
+        },
+        {
+            "ano": "2023",
+            "emissor": "Uniasselvi",
+            "id": 4,
+            "nome": "Ciência de DadosCiência de Dados",
+            "url": "https://drive.google.com/file/d/1sU3N4wjVvk8xln7mKe3nCufoOhw-SgFT/view?usp=drive_link"
+        }
+    ],
+    "id": 1,
+    "cargo": "Desenvolvedor Full Stack Júnior | Java | Spring Boot | APIs REST | Angular | React | Docker | Linux & Shell Scripting",
     "email": "eder.ebl@gmail.com",
-    "telefone": "(51) 984049178"
-  },
-  "competencias": [
-    "APIs RESTful",
-    "Spring Boot",
-    "Docker",
-    "React",
-    "Angular",
-    "Java",
-    "MySQL",
-    "Shell Scripting",
-    "Linux"
-  ],
-  "experiencias": [
-    {
-      "cargo": "Desenvolvedor Full Stack (Projetos Acadêmicos e Práticos)",
-      "tipoEmprego": "Profissional Independente",
-      "empresa": "Projetos Independentes / Portfólio",
-      "atividades": [
-        "Construção de microsserviços e APIs RESTful utilizando Java e Spring Boot, implementando operações completas de CRUD com mapeamento de rotas HTTP (GET, POST, PUT, DELETE).",
-        "Desenvolvimento de telas e componentes dinâmicos no ecossistema frontend utilizando Angular e React, realizando a integração e consumo das APIs REST do backend.",
-        "Modelagem de dados, otimização de queries e persistência de dados com o banco relacional MySQL.",
-        "Containerização de aplicações (Backend e Frontend) utilizando Docker, facilitando a configuração de ambientes e deploy.",
-        "Criação de rotinas de automação, gerenciamento de usuários e controle de permissões no terminal Linux via Shell Scripting.",
-        "Versionamento de repositórios e controle de fluxo de código utilizando Git e GitHub."
-      ]
-    }
-  ],
-  "certificados": [
-    {
-      "nome": "Analise e Desenvolvimento de Software",
-      "emissor": "Uniasselvi",
-      "ano": "2020",
-      "url": "https://drive.google.com/file/d/1OFpS1AfGCbUv-pxGv-ciQJ1VxUeOC791/view?usp=sharing"
-      
-    },
-    {
-      "nome": "Engenharia de Software",
-      "emissor": "Uniasselvi",
-      "ano": "2025",
-      "url": "https://drive.google.com/file/d/1xIHT-ErZVpSb0oRyTTzQEQz5QyzwZvN3/view?usp=sharing"
-    },
-       {
-      "nome": "Desenvolvimento de Sistemas com JAVA",
-      "emissor": "Uniasselvi",
-      "ano": "2024",
-      "url": "https://drive.google.com/file/d/1lUr4IbfAqTxxu25YeIaybAiR3Q6-vuF8/view?usp=sharing"
-    },
-       {
-      "nome": "Ciência de DadosCiência de Dados",
-      "emissor": "Uniasselvi",
-      "ano": "2023",
-      "url": "https://drive.google.com/file/d/1sU3N4wjVvk8xln7mKe3nCufoOhw-SgFT/view?usp=sharing"
-    }
-  ],
-  "projetos": [
-    {
-      "titulo": "Projeto CRUD em Java para aplicação Desktop",
-      "descricao": "Aplicação desktop desenvolvida em Java com interface gráfica, permitindo a manipulação de dados em um banco de dados SQLite.",
-      "tags": ["Java", "Swing", "MySQL"],
-      "linkGithub": "https://github.com/EderLima88/JavaCrudSqlite"
-    },
-     {
-      "titulo": "Infraestrutura como Código (IaC) - Linux",
-      "descricao": "Projeto de infra como código (IaC) para configuração de serviços e gerenciamento de usuários.",
-      "tags": ["Linux", "Shell Scripting", "Automação"],
-      "linkGithub": "https://github.com/EderLima88/linux-proj1-infra"
-    },
-     {
-      "titulo": "API RESTful - Sistema de E-commerce",
-      "descricao": "API completa para gerenciamento de produtos, carrinho de compras e pedidos dos usuários.",
-      "tags": ["Docker", "TypeScript", "React"],
-      "linkGithub": "https://github.com/EderLima88/react-docker-yarn-typescript-2"
-    },
-     {
-      "titulo": "Aplicação Spring Boot com H2 Database",
-      "descricao": "Aplicação desenvolvida com Spring Boot com padrão MVC",
-      "tags": ["Java", "Spring Boot", "MVC", "H2 Database"],
-      "linkGithub": "https://github.com/EderLima88/spring-rest-api-h2"
-    },
-     {
-      "titulo": "Aplicação gestão de pessoas com HTML, CSS e JavaScript puros",
-      "descricao": "Manipuação de dados de pessoas com HTML, CSS e JavaScript puros, utilizando LocalStorage MYSQL.",
-      "tags": ["HTML", "Bootstrap", "PHP", "MySQL"],
-      "linkGithub": "https://github.com/EderLima88/CRUDTargetTrust"
-    },
-     {
-      "titulo": "Blog em Angula no git pages sobre Silent Hill",
-      "descricao": "Blog desenvolvido em Angular, hospedado no GitHub Pages, abordando informações e curiosidades sobre a franquia de jogos Silent Hill.",
-      "tags": ["Angular", "GitHub Pages","Modular","Routing"],
-      "linkGithub": "https://github.com/EderLima88/angular-blog-jogos"
-    }
-  ]
+    "competencias": [
+        "APIs RESTful",
+        "Spring Boot",
+        "Docker",
+        "React",
+        "Angular",
+        "Java",
+        "MySQL",
+        "Shell Scripting",
+        "Linux"
+    ]
 }
