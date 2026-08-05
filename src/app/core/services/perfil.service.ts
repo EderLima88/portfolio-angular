@@ -1,4 +1,4 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { inject, ChangeDetectorRef, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { delay, retry, timer, timeout } from 'rxjs';
 
@@ -24,6 +24,7 @@ interface RespostaPortfolio {
 @Injectable({ providedIn: 'root' })
 export class PerfilService {
   private http = inject(HttpClient);
+  private cdr = inject(ChangeDetectorRef);
   //private apiUrl = '/dados-portfolio.json';
   private apiUrl = 'https://portfolioapi-eder.onrender.com/api/portfolio';
 
@@ -31,6 +32,7 @@ export class PerfilService {
   dadosPerfil = signal<any>(null);
   projetos = signal<Projeto[]>([]);
   certificados = signal<Certificado[]>([]);
+
 
   carregarTudo() {
     this.carregando.set(true);
@@ -55,6 +57,8 @@ export class PerfilService {
 
           // Spinner desliga
           this.carregando.set(false); 
+          // Força o navegador a redesenhar a tela
+          this.cdr.detectChanges();
      },
       error: (err) => {
       console.error('Erro ao ler o arquivo dados-portifolio.json:', err);
