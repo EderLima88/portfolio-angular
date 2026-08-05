@@ -1,4 +1,4 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal, NgZone } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { delay, retry, timer, timeout, catchError } from 'rxjs';
 
@@ -24,9 +24,11 @@ interface RespostaPortfolio {
 @Injectable({ providedIn: 'root' })
 export class PerfilService {
   private http = inject(HttpClient);
+  private ngZone = inject(NgZone);
     //private apiUrl = '/dados-portfolio.json';
   private apiUrl = 'https://portfolioapi-eder.onrender.com/api/portfolio';
-  private apiBackupUrl = './dados-portfolio.json'; 
+  //Caso o render não esteja mais disponivel, a api local podera ser usada.
+  //private apiBackupUrl = './dados-portfolio.json'; 
 
   carregando = signal<boolean>(true);
   dadosPerfil = signal<any>(null);
@@ -37,6 +39,9 @@ export class PerfilService {
   carregarTudo() {
     this.carregando.set(true);
 
+    // 2. Pequeno respiro (50ms) para o celular renderizar o Spinner antes da rede travar o processamento
+    setTimeout(() => {
+      this.ngZone.run(() => {
     this.http.get<any>(this.apiUrl).pipe(
       timeout(8000),
       //Do CELULAR: ele derruma a conexão demorada para a economia de energia
@@ -46,12 +51,12 @@ export class PerfilService {
       delay: () => timer(4000)
       }),
 
-  // ESTRATÉGIA DE FALLBACK: Se o Render falhar definitivamente (limite atingido),
+      // ESTRATÉGIA DE FALLBACK: Se o Render falhar definitivamente (limite atingido),
       // o catchError captura o erro e busca o JSON local automaticamente.
-      catchError((erro) => {
-        console.warn('Conexão com Render falhou ou atingiu limite. Carregando backup local...', erro);
-        return this.http.get<any>(this.apiBackupUrl);
-      }),
+      //catchError((erro) => {
+        //console.warn('Conexão com Render falhou ou atingiu limite. Carregando backup local...', erro);
+        //return this.http.get<any>(this.apiBackupUrl);
+      //}),
 
       delay(2000)//2s para renderizar o DOM
 
@@ -63,13 +68,13 @@ export class PerfilService {
 
           // Spinner desliga
           this.carregando.set(false); 
-        
-        
-     },
+      },
       error: (err) => {
       console.error('Erro ao ler o arquivo dados-portifolio.json:', err);
       this.carregando.set(false); 
     }
     });
-  }
+  });
+  },50);
+}
 }
