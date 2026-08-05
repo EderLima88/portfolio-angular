@@ -36,15 +36,17 @@ export class PerfilService {
     this.carregando.set(true);
 
     this.http.get<any>(this.apiUrl).pipe(
-    delay(2000),//2s para renderizar o DOM
-    timeout(8000),
+      timeout(8000),
       
       //Do CELULAR: ele derruma a conexão demorada para a economia de energia
       //Tenta mais 2 vezes, esperando 3 segundos Render API acordar.
       retry({
         count: 5,
         delay: () => timer(4000)
-      })
+      }),
+
+      delay(2000)//2s para renderizar o DOM
+
       ).subscribe({
         next: (resposta) => {
           this.dadosPerfil.set(resposta);
@@ -54,7 +56,10 @@ export class PerfilService {
           // Spinner desliga
           this.carregando.set(false); 
      },
-      error: (err) => console.error('Erro ao ler o arquivo dados-portifolio.json:', err)
+      error: (err) => {
+      console.error('Erro ao ler o arquivo dados-portifolio.json:', err);
+      this.carregando.set(false); 
+    }
     });
   }
 }
