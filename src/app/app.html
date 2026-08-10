@@ -30,29 +30,30 @@
 
         </div>
       </div>
+</header>
 
     <nav class="nav-menu">
-      <button [class.active]="abaAtiva === 'projetos'" (click)="mudarAba('projetos')">📁 Projetos</button>
-      <button [class.active]="abaAtiva === 'certificados'" (click)="mudarAba('certificados')">📜 Certificados</button>
-      <button [class.active]="abaAtiva === 'contato'" (click)="mudarAba('contato')">📞 Contatos</button>
+      <button [class.active]="abaAtiva() === 'projetos'" (click)="mudarAba('projetos')">📁 Projetos</button>
+      <button [class.active]="abaAtiva() === 'certificados'" (click)="mudarAba('certificados')">📜 Certificados</button>
+      <button [class.active]="abaAtiva() === 'contato'" (click)="mudarAba('contato')">📞 Contatos</button>
     </nav>
-  </header>
+  
 
   <!-- Componente de Projetos -->
   <app-projetos 
-    *ngIf="abaAtiva === 'projetos'" 
+    *ngIf="abaAtiva() === 'projetos'" 
     [listaProjetos]="perfilService.projetos()">
   </app-projetos>
 
   <!-- Componente de Certificados -->
   <app-certificados 
-    *ngIf="abaAtiva === 'certificados'" 
+    *ngIf="abaAtiva() === 'certificados'" 
     [listaCertificados]="perfilService.certificados()">
   </app-certificados>
 
   <!-- Seção de Contato -->
      <app-contato 
-    *ngIf="abaAtiva === 'contato'" 
+    *ngIf="abaAtiva() === 'contato'" 
     [dados]="dados">
   </app-contato>
   

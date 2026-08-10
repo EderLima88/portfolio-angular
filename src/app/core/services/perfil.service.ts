@@ -39,42 +39,35 @@ export class PerfilService {
   carregarTudo() {
     this.carregando.set(true);
 
-    // 2. Pequeno respiro (50ms) para o celular renderizar o Spinner antes da rede travar o processamento
-    setTimeout(() => {
-      this.ngZone.run(() => {
-    this.http.get<any>(this.apiUrl).pipe(
-      timeout(8000),
-      //Do CELULAR: ele derruma a conexão demorada para a economia de energia
-      //Tenta mais 2 vezes, esperando 3 segundos Render API acordar.
+    const requisicaoRender = this.http.get<any>(this.apiUrl).pipe(
+      timeout(10000),
       retry({
-        count: 5,
-      delay: () => timer(4000)
+        count: 7,
+        delay: () => timer(4000)
+      })
+    );
+    
+    requisicaoRender.pipe(
+      catchError((err) => {
+        console.warn('Render offline ou Timeout. Tentando carregar dados locais...');
+        // Busca o JSON local SEM timeout para garantir que ele carregue até o fim
+        return this.http.get<any>('./dados-portfolio.json');
       }),
-
-      // ESTRATÉGIA DE FALLBACK: Se o Render falhar definitivamente (limite atingido),
-      // o catchError captura o erro e busca o JSON local automaticamente.
-      //catchError((erro) => {
-        //console.warn('Conexão com Render falhou ou atingiu limite. Carregando backup local...', erro);
-        //return this.http.get<any>(this.apiBackupUrl);
-      //}),
-
       delay(2000)//2s para renderizar o DOM
 
       ).subscribe({
         next: (resposta) => {
+            if (resposta) {
           this.dadosPerfil.set(resposta);
-          this.projetos.set(resposta.projetos);
-          this.certificados.set(resposta.certificados);
-
+          this.projetos.set(resposta.projetos ?? []);
+          this.certificados.set(resposta.certificados ?? []);
+          }
           // Spinner desliga
           this.carregando.set(false); 
       },
       error: (err) => {
       console.error('Erro ao ler o arquivo dados-portifolio.json:', err);
       this.carregando.set(false); 
-    }
+      }
     });
-  });
-  },50);
-}
-}
+  }}

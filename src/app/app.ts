@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PerfilService } from './core/services/perfil.service';
 
@@ -15,14 +15,15 @@ import { ContatoComponent } from './components/contato/contato';
 })
 export class AppComponent implements OnInit {
   perfilService = inject(PerfilService);
-  abaAtiva: 'projetos' | 'certificados' | 'contato' | '' = '';
+  //abaAtiva: 'projetos' | 'certificados' | 'contato' | '' = '';
+  abaAtiva = signal<'projetos' | 'certificados' | 'contato' | ''>('');
 
   ngOnInit() {
     this.perfilService.carregarTudo();
   }
 
   mudarAba(aba: 'projetos' | 'certificados' | 'contato') {
-    this.abaAtiva = aba;
+    this.abaAtiva.set(aba);
   }
 
   formatarResumo(textoOriginal: string): string {

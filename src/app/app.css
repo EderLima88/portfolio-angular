@@ -21,6 +21,7 @@
   min-height: 100vh;
   padding: 0.5rem 2rem 2rem 2rem;
   box-sizing: border-box;
+  overflow: visible !important; 
 }
 
 .hero {
@@ -156,6 +157,7 @@
       #b91c1c 95%,      
       #7f1d1d 100%
     ) !important;
+    padding: 0.5rem 0.5rem 2rem 0.5rem !important; 
   }
 
   .hero h1 {
@@ -188,18 +190,29 @@
     display: none !important; 
   }
 
-  .nav-menu {
-    flex-direction: column;
+   .nav-menu {
+    position: -webkit-sticky; /* Suporte para Safari (iOS antigo) */
+    position: sticky;         /* Ativa o travamento automático */
+    top: 0;                   /* Fixa no topo físico da tela */
+    z-index: 999;             /* Fica por cima do conteúdo dos componentes */
+    flex-direction: row;      /* IMPORTANTE: Mantém os botões lado a lado */
     width: 100%;
-    max-width: 320px;
-    margin: 2.5rem auto 0 auto;
-    gap: 0.75rem;
+    max-width: 100%;
+    margin: 2rem 0 1.5rem 0;  /* Ajusta margens externas para alinhar */
+    gap: 0.5rem;              /* Reduz o espaço entre os botões para caberem */
+    padding: 10px 5px;        /* Espaço interno para o clique respirar */
+    background-color: #000000; /* Cor preta para tampar os projetos que sobem */
+    box-shadow: 0 8px 12px -4px rgba(0, 0, 0, 0.7); /* Sombra para destacar o menu escuro */
+    box-sizing: border-box;
   }
 
   .nav-menu button {
-    width: 100%;
-    padding: 0.85rem;
-    font-size: 1.05rem;
+    flex: 1;                  /* Divide o espaço horizontal igualmente por 3 */
+    width: auto;
+    padding: 0.7rem 0.3rem;   /* Padding menor nas laterais para não esmagar o texto */
+    font-size: 0.85rem;       /* Fonte ligeiramente menor para caber em telas de 320px */
+    white-space: nowrap;      /* Impede que o texto quebre linhas */
+    border-radius: 4px;       /* Borda um pouco mais suave */
   }
 }
 
