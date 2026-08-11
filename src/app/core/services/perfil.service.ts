@@ -25,16 +25,21 @@ interface RespostaPortfolio {
 export class PerfilService {
   private http = inject(HttpClient);
   private ngZone = inject(NgZone);
-    //private apiUrl = '/dados-portfolio.json';
   private apiUrl = 'https://portfolioapi-eder.onrender.com/api/portfolio';
   //Caso o render não esteja mais disponivel, a api local podera ser usada.
-  //private apiBackupUrl = './dados-portfolio.json'; 
+  private apiBackupUrl = './dados-portfolio.json'; 
 
-  carregando = signal<boolean>(true);
-  dadosPerfil = signal<any>(null);
+  // carregando = signal<boolean>(true);
+  // dadosPerfil = signal<any>(null);
+  // projetos = signal<Projeto[]>([]);
+  // certificados = signal<Certificado[]>([]);
+
+    carregando = signal<boolean>(true);
+  // O Perfil começa como null, pois é um objeto único
+  dadosPerfil = signal<Perfil | null>(null);
+  // Projetos e Certificados começam como arrays vazios []
   projetos = signal<Projeto[]>([]);
   certificados = signal<Certificado[]>([]);
-
 
   carregarTudo() {
     this.carregando.set(true);
