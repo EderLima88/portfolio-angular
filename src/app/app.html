@@ -1,7 +1,7 @@
 <div class="loading-overlay" *ngIf="perfilService.carregando()">
   <div class="spinner"></div>
   <p class="loading-text">
-    Conectando ao servidor em nuvem... Serviço gratuito, pode levar cerca de 1 minuto para inicializar a api no banco de dados. No Smartphone recarregue a página depois de 1 minuto
+    Conectando ao servidor em nuvem... Serviço gratuito, pode levar cerca de 1 minuto para inicializar a api no banco de dados.
   </p>
 </div>
 
@@ -10,35 +10,36 @@
   <header class="hero">
     <h1>{{ dados.nome }}</h1>
     <h2>{{ dados.cargo }}</h2>
-    
       <div class="hero-content">
           <img src="./perfil.jpg" alt="Foto de {{ dados.nome }}" class="avatar-foto">
-      
         <div class="hero-texto">
           <p class="formacao">🎓 <strong>Formação:</strong> {{ dados.formacao }}</p>
           <p class="resumo" [innerHTML]="formatarResumo(dados.resumo)"></p>
-
           <ul class="lista-caracteristicas">
-          <li>Disciplina</li>
-          <li class="ponto-divisor">•</li>
-          <li>Responsabilidade</li>
-          <li class="ponto-divisor">•</li>
-          <li>Compromisso</li>
-          <li class="ponto-divisor">•</li>
-          <li>Resiliência</li>
-        </ul>
-
+            <li>Disciplina</li>
+            <li class="ponto-divisor">•</li>
+            <li>Responsabilidade</li>
+            <li class="ponto-divisor">•</li>
+            <li>Compromisso</li>
+            <li class="ponto-divisor">•</li>
+            <li>Resiliência</li>
+          </ul>
         </div>
       </div>
-</header>
+  </header>
 
     <nav class="nav-menu">
       <button [class.active]="abaAtiva() === 'projetos'" (click)="mudarAba('projetos')">📁 Projetos</button>
       <button [class.active]="abaAtiva() === 'certificados'" (click)="mudarAba('certificados')">📜 Certificados</button>
       <button [class.active]="abaAtiva() === 'contato'" (click)="mudarAba('contato')">📞 Contatos</button>
+      <a href="https://github.com/EderLima88/portfolioapi-backend" target="_blank" rel="noopener noreferrer">
+        <button >☕ Cod. Java</button>
+      </a>
+      <a href="https://github.com/EderLima88/portfolio-angular" target="_blank" rel="noopener noreferrer">
+        <button>🅰️ Cod. Angular</button>
+      </a>
     </nav>
   
-
   <!-- Componente de Projetos -->
   <app-projetos 
     *ngIf="abaAtiva() === 'projetos'" 

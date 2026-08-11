@@ -34,10 +34,8 @@ export class PerfilService {
   // projetos = signal<Projeto[]>([]);
   // certificados = signal<Certificado[]>([]);
 
-    carregando = signal<boolean>(true);
-  // O Perfil começa como null, pois é um objeto único
+  carregando = signal<boolean>(true);
   dadosPerfil = signal<Perfil | null>(null);
-  // Projetos e Certificados começam como arrays vazios []
   projetos = signal<Projeto[]>([]);
   certificados = signal<Certificado[]>([]);
 
