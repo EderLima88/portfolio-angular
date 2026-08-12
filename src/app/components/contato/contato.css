@@ -7,6 +7,10 @@
   border-bottom: 2px solid rgba(22, 27, 38, 0.8);
   padding-bottom: 0.5rem;
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;   /* Empilha os textos e itens um embaixo do outro */
+  align-items: center;      /* Centraliza tudo horizontalmente (esquerda/direita) */
+  justify-content: center;
 }
 .contact-card p { 
   font-size: 1.1rem; 
@@ -33,4 +37,18 @@
   font-size: 1.1rem; 
   margin-bottom: 1.2rem; 
   color: #f3f4f6; 
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;   /* Empilha os textos e itens um embaixo do outro */
+  align-items: center;      /* Centraliza tudo horizontalmente (esquerda/direita) */
+  justify-content: center;  /* Centraliza na vertical se houver altura */
+  text-align: center;       /* Força os textos a ficarem no meio */
+  background-color: rgba(22, 27, 38, 0.8); /* Mantém o fundo escuro padrão do seu tema */
+  padding: 2rem;            /* Espaçamento interno idêntico ao seu project-card */
+  border-radius: 8px;       /* Bordas arredondadas padrão do seu tema */
+  border: 1px solid #29292e;/* Borda padrão do seu tema */
+  max-width: 500px;         /* Evita que o card estique demais no monitor do PC */
+  margin: 2rem auto 0 auto; /* Centraliza o bloco inteiro na tela do PC */
 }

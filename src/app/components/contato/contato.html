@@ -1,15 +1,15 @@
 <section class="content-section" *ngIf="dados">
-  <h3>📞 Informações de Contato Direct</h3>
+  <h3>Informações de Contato Direct</h3>
   <div class="project-card contact-card">
-    <p>🎯 <strong>LinkedIn: </strong> <a [href]="dados.linkLinkedin" target="_blank">{{ dados.linkLinkedin }}</a></p>
-    <p>💻 <strong>GitHub: </strong> <a [href]="dados.linkGithub" target="_blank">{{ dados.linkGithub }}</a></p>
-    <p>✉️ <strong>E-mail Direto: </strong> <a [href]="'mailto:' + dados.email">{{ dados.email }}</a></p>
+    <p>🎯 <a [href]="dados.linkLinkedin" target="_blank"> LinkedIn </a></p>
+    <p>💻 <a [href]="dados.linkGithub" target="_blank"> GitHub </a></p>
+    <p>✉️ <a [href]="'mailto:' + dados.email">E-mail Direto:</a></p>
     
       <div class="contato-item"> 
         <p>
-         💬<strong> Telefone e whatsapp:</strong>
+         💬<strong></strong>
             <a [href]="dados.telefone" target="_blank" rel="noopener noreferrer" class="link-whatsapp">
-              (51) 98404-9178
+               Telefone e whatsapp
             </a>
         </p>
       </div>
