@@ -9,12 +9,12 @@
 .portfolio {
   background: linear-gradient(
     135deg, 
-    #b91c1c 0%, 
-    #7f1d1d 15%,
-    #000000 25%,
-    #000000 60%,
-    #b91c1c 85%,
-    #7f1d1d 100%
+    #3f0712 0%,
+    #1f0308 20%,
+    #0f0f12 35%,
+    #0f0f12 65%,
+    #1f0308 80%,
+    #3f0712 100%
   );
   color: var(--text-main);
   font-family: 'Segoe UI', Arial, sans-serif;
@@ -150,12 +150,12 @@
   .portfolio {
     background: linear-gradient(
       135deg, 
-      #b91c1c 0%,    
-      #7f1d1d 15%,
-      #000000 25%,
-      #000000 85%,      
-      #b91c1c 95%,      
-      #7f1d1d 100%
+    #3f0712 0%,
+    #1f0308 20%,
+    #0f0f12 35%,
+    #0f0f12 65%,
+    #1f0308 80%,
+    #3f0712 100%
     ) !important;
     padding: 0.5rem 0.5rem 2rem 0.5rem !important; 
   }
