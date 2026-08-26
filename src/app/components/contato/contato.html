@@ -1,13 +1,13 @@
 <section class="content-section" *ngIf="dados">
   <h3>Informações de Contato Direct</h3>
   <div class="project-card contact-card">
-    <p>🎯 <a [href]="dados.linkLinkedin" target="_blank"> LinkedIn </a></p>
-    <p>💻 <a [href]="dados.linkGithub" target="_blank"> GitHub </a></p>
-    <p>✉️ <a [href]="'mailto:' + dados.email">E-mail Direto:</a></p>
+    <p><a [href]="dados.linkLinkedin" target="_blank"> LinkedIn </a></p>
+    <p><a [href]="dados.linkGithub" target="_blank"> GitHub </a></p>
+    <p><a [href]="'mailto:' + dados.email">E-mail Direto:</a></p>
     
       <div class="contato-item"> 
         <p>
-         💬<strong></strong>
+         <strong></strong>
             <a [href]="dados.telefone" target="_blank" rel="noopener noreferrer" class="link-whatsapp">
                Telefone e whatsapp
             </a>
